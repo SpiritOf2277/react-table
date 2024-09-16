@@ -1,23 +1,40 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+
+const Table = () => {
+  const data = [
+    { cc: "1", txt: "Data 1" },
+    { cc: "3", txt: "Data 2" },
+    { cc: "4", txt: "Data 3" },
+    { cc: "7", txt: "Data 4" },
+    { cc: "8", txt: "Data 5" }
+  ];
+
+  return (
+    <table border="1">
+      <thead>
+        <tr>
+          <th>CC</th>
+          <th>Text</th>
+        </tr>
+      </thead>
+      <tbody>
+        {data.map((item, index) => (
+          <tr key={index}>
+            <td>{item.cc}</td>
+            <td>{item.txt}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+};
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Table Example</h1>
+      <Table />
     </div>
   );
 }
